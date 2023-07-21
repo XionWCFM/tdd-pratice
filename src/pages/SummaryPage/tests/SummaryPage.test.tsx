@@ -6,7 +6,7 @@ test('checkbox and button', () => {
   const checkbox = screen.getByRole('checkbox', {
     name: '주문하려는 것을 확인하셨나요?',
   });
-  expect(checkbox).toBeChecked();
+  expect(checkbox).not.toBeChecked();
 
   const confirmButton = screen.getByRole('button', { name: '주문 확인' });
   expect(confirmButton).toBeDisabled();
