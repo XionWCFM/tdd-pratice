@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react';
 import Type from '../Type';
 
 test('display product images from server', async () => {
-  render(<Type />);
+  render(<Type orderType="products" />);
   const productImages = await screen.findAllByRole('img', {
     name: /product$i/,
   });
