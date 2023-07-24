@@ -1,5 +1,6 @@
 import * as S from '@/components/atom-components';
 import { useState } from 'react';
+import Type from './pages/OrderPage/Type';
 
 const App = () => {
   const [counter, setCounter] = useState(0);

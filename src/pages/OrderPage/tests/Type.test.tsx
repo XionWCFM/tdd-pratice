@@ -3,9 +3,7 @@ import Type from '../Type';
 
 test('display product images from server', async () => {
   render(<Type orderType="products" />);
-  const productImages = await screen.findAllByRole('img', {
-    name: /product$i/,
-  });
+  const productImages = await screen.findAllByRole('img');
   expect(productImages).toHaveLength(2);
 
   const altText = productImages.map(
