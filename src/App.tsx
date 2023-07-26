@@ -32,6 +32,7 @@ const App = () => {
       >
         온오프
       </button>
+      <Type orderType="products" />
     </S.FullLayout>
   );
 };

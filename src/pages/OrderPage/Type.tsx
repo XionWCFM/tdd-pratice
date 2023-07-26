@@ -13,21 +13,23 @@ interface TypeProps {
 
 const Type = ({ orderType }: TypeProps) => {
   const [items, setItems] = React.useState<DataType[]>([]);
-
+  const [isError, setIsError] = React.useState(false);
   useEffect(() => {
     void loadItems(orderType);
   }, [orderType]);
 
   const loadItems = async (orderType: TypeProps['orderType']) => {
     try {
-      const response = await axios.get<DataType[]>(`${orderType}`);
+      const response = await axios.get<DataType[]>(`/${orderType}`);
       setItems(response.data);
-      console.log(response.data);
       return response;
     } catch (error) {
-      console.log(error);
+      setIsError(true);
     }
   };
+
+  if (isError)
+    return <div data-testid="error-banner">에러가 발생했습니다.</div>;
 
   return (
     <div>
